@@ -1,6 +1,6 @@
-#ifndef _semiconductor_dataset_test_main_H
-#define _semiconductor_dataset_test_main_H
-#ifndef _SEMICONDUCTOR_DATASET_TEST_MAIN_H // necessary for arduino-cli, which automatically includes headers that are not used
+#ifndef _wafer_dataset_main_H
+#define _wafer_dataset_main_H
+#ifndef _WAFER_DATASET_MAIN_H // necessary for arduino-cli, which automatically includes headers that are not used
 #include "pythontarget.h"
 #include <limits.h>
 #include "low_level_platform/api/low_level_platform.h"
@@ -20,13 +20,13 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-typedef struct semiconductor_dataset_test_self_t{
+typedef struct wafer_dataset_self_t{
     self_base_t base; // This field is only to be used by the runtime, not the user.
     PyObject* wafer_index;
     PyObject* fase;
     int end[0]; // placeholder; MSVC does not compile empty structs
-} semiconductor_dataset_test_self_t;
-typedef generic_action_instance_struct _semiconductor_dataset_test_main_next_step_t;
+} wafer_dataset_self_t;
+typedef generic_action_instance_struct _wafer_dataset_main_next_step_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;
