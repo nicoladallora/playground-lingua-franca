@@ -24,6 +24,7 @@ typedef struct fase_self_t{
     self_base_t base; // This field is only to be used by the runtime, not the user.
     PyObject* col_start;
     PyObject* col_end;
+    PyObject* durata_sec;
     int end[0]; // placeholder; MSVC does not compile empty structs
 } fase_self_t;
 typedef generic_port_instance_struct _fase_start_flag_t;

@@ -41,7 +41,7 @@ def get_wafer_status(index):
     return -1
 =}
 
-reactor Fase(col_start=0, col_end=0) {
+reactor Fase(col_start=0, col_end=0, durata_sec=1) {
     input start_flag
     input wafer_index
     output end_flag
@@ -54,7 +54,7 @@ reactor Fase(col_start=0, col_end=0) {
             print(f"Valori sensori: {[float(value) for value in data]}")
         else:
             print("Errore nella lettura dei dati.")
-        time.sleep(1)
+        time.sleep(self.durata_sec)
         end_flag.set(1)
     =}
 }
@@ -84,13 +84,13 @@ main reactor {
     state wafer_index = 0
     state fase = 1
 
-    f1 = new Fase(col_start=1, col_end=84)
-    f2 = new Fase(col_start=85, col_end=169)
-    f3 = new Fase(col_start=170, col_end=254)
-    f4 = new Fase(col_start=255, col_end=339)
-    f5 = new Fase(col_start=340, col_end=424)
-    f6 = new Fase(col_start=425, col_end=509)
-    f7 = new Fase(col_start=510, col_end=590)
+    f1 = new Fase(col_start=1, col_end=84, durata_sec=5)
+    f2 = new Fase(col_start=85, col_end=169, durata_sec=5)
+    f3 = new Fase(col_start=170, col_end=254, durata_sec=5)
+    f4 = new Fase(col_start=255, col_end=339, durata_sec=5)
+    f5 = new Fase(col_start=340, col_end=424, durata_sec=5)
+    f6 = new Fase(col_start=425, col_end=509, durata_sec=5)
+    f7 = new Fase(col_start=510, col_end=590, durata_sec=5)
     f8 = new FaseFinale(col=591)
 
     logical action next_step
